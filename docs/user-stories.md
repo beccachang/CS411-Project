@@ -1,4 +1,5 @@
 **Log In**
+
 action: log in with OAuth
 
 result: 
@@ -9,6 +10,7 @@ error: display error and ask to log in again
 ---
 
 **Search a Date**
+
 action: input a search date
 
 result:
@@ -22,6 +24,7 @@ incorrect format: display nothing could be found
 
 **Look for Past Searches?**
 
+action: click a button to view previous searches
 
 result: 
 everything goes right: display (up to the last) 10 most recent searches and the associated articles, videos, songs
