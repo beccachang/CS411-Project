@@ -1,4 +1,5 @@
 **Log In**
+
 On the main page of the application, there is a button that will direct the user to create a profile or log in to the app. Upon clicking the button, the user should see the ways of signing using Open Authorization (OAuth) via Google, Facebook, and GitHub accounts. The user enters the log in information to one of these accounts. Then the user clicks a submit button.
 
 If the log in is successful, then the user should be directed to the main page for logged in users where dates can be searched.
@@ -10,6 +11,7 @@ If the log in is not successful, an error should be displayed and the app should
 
 
 **Search a Date**
+
 After the user logs in (see above), the user will be able to input a search date in month/year format. After inputting the date, the user will click a submit button. 
 
 If the submission is valid, a list of the most popular Wikipedia articles of events, YouTube videos, and Spotify songs related to the input date will be returned to the user, if they can be found.
@@ -30,6 +32,7 @@ This functionality is available only to logged in users.
 
 
 **Look for Past Searches**
+
 After the user logs in (see first user story), the user will be directed to the main page. On this main page, there will be a button that a user can click to browse up to the last 10 valid dates for which the user searched. The user will click this button.
 
 If the submission is successful, the user should be directed to the page containing up to the user's last 10 searches. Each of these will contain the Wikipedia pages, YouTube videos, and Spotify songs related to the dates, if they exist.
