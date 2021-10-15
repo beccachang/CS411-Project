@@ -16,7 +16,7 @@ After the user logs in (see above), the user will be able to input a search date
 
 If the submission is valid, a list of the most popular Wikipedia articles of events, YouTube videos, and Spotify songs related to the input date will be returned to the user, if they can be found.
 
-If the submission is valid, but some of the compoments (Wikipedia articles, YouTube videos, Spotify songs) could not found, the components that were found will still be returned, and the application will state that the compoment(s) that could not be found. If none of the compoments could be found, then the application will state that none of the compoments could be found.
+If the submission is valid, but some of the components (Wikipedia articles, YouTube videos, Spotify songs) could not found, the components that were found will still be returned, and the application will state that the compoment(s) that could not be found. If none of the components could be found, then the application will state that none of the components could be found.
 
 There are several ways for the submission to be invalid:
 * The input parameter is missing the month or the year.
