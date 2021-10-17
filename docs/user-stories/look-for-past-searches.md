@@ -1,4 +1,4 @@
-*Look for Past Searches*
+**Look for Past Searches**
 
 After the user successfully logs in (see first user story), the user will be directed to the main page. On this main page, there will be a button that a user can click to browse up to the last 10 valid dates (with countries, if applicable) for which the user previously searched. The user will click this button.
 

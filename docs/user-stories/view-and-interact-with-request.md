@@ -1,4 +1,4 @@
-*View and Interact with Request Response*
+**View and Interact with Request Response**
 
 As a logged in user, I want to be able to view and interact with the request response. After the user has submitted their request (see Submit Date and Country Request story), they will be redirected to a dashboard page with all the data displayed (Wikipedia, Spotfy, Youtube). 
 

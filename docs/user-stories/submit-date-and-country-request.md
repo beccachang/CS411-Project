@@ -1,4 +1,4 @@
-*Submit Date and Country Request*
+**Submit Date and Country Request**
 
 As a logged in user, I want to be able to submit a date, time, and country. After the user logs in (see Log In Story), the user will be redirected to a landing page with a form. The user will be able to input a search request into the form consisting of a date in month/year format, and optionally, a country of interest. We will validate the date and country input. If the input is invalid, the user will be unable to submit the request and will be notified by the form that their input is invalid. After inputting the date, the user will click a submit button. While the APIs run, the user will be shown an indication of loading (loading bar, or progress circle). 
 
