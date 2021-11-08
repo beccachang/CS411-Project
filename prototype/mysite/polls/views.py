@@ -6,6 +6,7 @@ from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from .models import Choice, Question
 from django.views import generic
+from .serializers import QuestionSerializer
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
@@ -24,6 +25,7 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
+    serializer_class = QuestionSerializer
 
     def get_queryset(self):
         """
