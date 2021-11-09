@@ -12,6 +12,16 @@ code {
     monospace;
 }
 
+.box{
+  float:left;
+  margin-right:20px;
+  width: 1400px;
+}
+
+.date-input {
+  float: left;
+  margin-left: 10px;
+}
 
 .site-layout-content {
   min-height: 550px;
