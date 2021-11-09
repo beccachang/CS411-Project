@@ -7,6 +7,7 @@ from .models import SearchRequest
 class SearchRequestViews(APIView):
     def post(self, request):
         serializer = SearchRequestSerializer(data=request.data)
+        print(serializer)
         if serializer.is_valid(): # NEED TO CHECK DATE TOO
             serializer.save()
             return Response(
