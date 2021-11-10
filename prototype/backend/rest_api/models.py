@@ -5,6 +5,5 @@ class SearchRequest(models.Model):
     year = models.PositiveIntegerField()
     wikipedia_results = models.JSONField(default=dict)
 
-    # TODO: add the following function?
-    # def __str__(self):
-    #     return (str(self.month) + ' ' + str(self.year))
+    def __str__(self):
+        return (str(self.month) + ' ' + str(self.year))

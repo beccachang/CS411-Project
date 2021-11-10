@@ -1,15 +1,28 @@
+from .serializers import *
+from .models import SearchRequest
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
+from .wikipedia import get_wiki_articles
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from .serializers import *
-from .models import SearchRequest
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 
-# TODO: the route requires changing how post and get are defined?
+class SearchRequestListAPIView(ListAPIView):
+    queryset = SearchRequest.objects.all()
+    serializer_class = SearchRequestSerializer
 
-# HAVEN'T CHANGED THIS YET
+class CreateSearchRequestAPIView(CreateAPIView):
+    queryset = SearchRequest.objects.all()
+    serializer_class = SearchRequestSerializer
+    def post(self, request, *args, **kwargs):
+        request.data['wikipedia_results'] = \
+            get_wiki_articles(request.data['month'], request.data['year'])
+        return self.create(request, *args, **kwargs)
+
+
+
+# LEGACY CODE BELOW (MAY BE USEFUL FOR REFERENCE LATER)
 # class SearchRequestViews(APIView):
 #     def post(self, request):
 #         serializer = SearchRequestSerializer(data=request.data)
@@ -44,7 +57,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 #              "data": serializer.data},
 #             status=status.HTTP_200_OK
 #         )
-
+#
 # @api_view(['GET', 'POST'])
 # def get_request(request):
 #     if request.method == 'GET':
@@ -79,16 +92,3 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 #                  "data": serializer.errors},
 #                 status=status.HTTP_400_BAD_REQUEST
 #             )
-
-
-class SearchRequestAPIView(APIView):
-    queryset = SearchRequest.objects.all()
-    serializer_class = SearchRequestSerializer
-
-class CreateSearchRequestAPIView(CreateAPIView):
-    queryset = SearchRequest.objects.all()
-    serializer_class = SearchRequestSerializer
-
-class RetrieveSearchRequestAPIView(CreateAPIView):
-    queryset = SearchRequest.objects.all()
-    serializer_class = SearchRequestSerializer
