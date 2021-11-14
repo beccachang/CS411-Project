@@ -13,13 +13,12 @@ code {
 }
 
 .box{
-  float:left;
   margin-right:20px;
+  margin-top:100px;
   width: 1400px;
 }
 
 .date-input {
-  float: left;
   margin-left: 10px;
 }
 
