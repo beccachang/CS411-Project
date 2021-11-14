@@ -13,3 +13,6 @@ Repository for some good CS411 collaboration.
 * curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8000/api/searchrequest/ -d "{\"month\":\"January\",\"year\":\"2020\"}"
 * curl -X GET http://127.0.0.1:8000/api/searchrequest/
 * curl -X GET http://127.0.0.1:8000/api/searchrequest/1
+
+## Prototype video link
+https://drive.google.com/file/d/1U4knT4UwWFs5NPZ3EcF3amSQQneSqM6v/view?usp=sharing
