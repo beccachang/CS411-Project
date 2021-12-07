@@ -23,8 +23,8 @@ class App extends React.Component {
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
-          <LoginPage/>
-          {/* <SearchFormPage/> */}
+          {/* <LoginPage/> */}
+          <SearchFormPage/>
         </Content>
         <Footer style={{ textAlign: 'center' }}>©2021 Created by Some Tired Kids</Footer>
       </Layout>

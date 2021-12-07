@@ -3,6 +3,7 @@ import { Layout, Menu, Breadcrumb, Form, Input, Button, Radio, DatePicker, Space
 import 'antd/dist/antd.css';
 import './index.css';
 import './App.css';
+import moment from 'moment';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,9 +56,13 @@ class App extends React.Component {
       formData: newDate
     })
   };
+  
+  disabledDate = (current) => {
+    // Can not select days before today and today
+    return current && current > moment().endOf('day');
+  }
 
   render() {
-    const { Header, Footer, Content } = Layout;
     const {wikiLinks, wikiHeaders, wikipediaIndex} = this.state;
 
     return (
@@ -69,7 +74,7 @@ class App extends React.Component {
         </Breadcrumb>
         <Form style={{ display: 'inline-block', position: 'absolute', left: '20px'}}>
           <Form.Item label="Date" name="Date">
-            <DatePicker picker="month" onChange={ e => this.onFormChange(e)}/>
+            <DatePicker picker="month" disabledDate={this.disabledDate} onChange={ e => this.onFormChange(e)}/>
             <Button type="primary" onClick={this.onSubmit} style={{marginLeft: '20px'}}>Submit</Button>
           </Form.Item>
         </Form>
