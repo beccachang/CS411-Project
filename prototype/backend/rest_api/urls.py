@@ -12,6 +12,7 @@ from rest_framework import routers
 urlpatterns = [
     path('', SearchRequestListAPIView.as_view(), name='search_request'),
     path('create/', CreateSearchRequestAPIView.as_view(), name='create_search_request'),
+    path('rest-auth/facebook/', FacebookLogin.as_view(), name='fb_login'),
     # LEGACY CODE BELOW (MAY BE USEFUL FOR REFERENCE)
     # path('searchrequest/', views.SearchRequestViews.as_view()),
     # path('searchrequest/<int:id>', views.SearchRequestViews.as_view()),
