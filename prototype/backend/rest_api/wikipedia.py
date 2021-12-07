@@ -40,4 +40,4 @@ def get_wiki_articles(month, year):
     
     
     return json.dumps(title_event, indent=4)
-print(get_wiki_articles("January", 2020))
+
