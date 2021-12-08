@@ -3,7 +3,7 @@ from django.urls import path
 # from .views import get_request
 from .views import *
 from rest_framework import routers
-# TODO: find the route of the project to do CRUD operations
+
 
 # router = routers.SimpleRouter()
 # router.register(r'searchrequest', SearchRequestViews)
@@ -12,7 +12,11 @@ from rest_framework import routers
 urlpatterns = [
     path('', SearchRequestListAPIView.as_view(), name='search_request'),
     path('create/', CreateSearchRequestAPIView.as_view(), name='create_search_request'),
-    path('rest-auth/facebook/', FacebookLogin.as_view(), name='fb_login'),
+    path('all/', all1, name="all"),
+    # path('rest-api/google/', GoogleLogin.as_view()),
+
+
+    # path('rest-auth/google/', FacebookLogin.as_view(), name='fb_login'),
     # LEGACY CODE BELOW (MAY BE USEFUL FOR REFERENCE)
     # path('searchrequest/', views.SearchRequestViews.as_view()),
     # path('searchrequest/<int:id>', views.SearchRequestViews.as_view()),

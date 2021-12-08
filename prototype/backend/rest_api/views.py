@@ -1,3 +1,5 @@
+from django.template.base import Token
+
 from .serializers import *
 from .models import SearchRequest
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
@@ -7,11 +9,22 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from allauth.socialaccount.providers.facebook.views import FacebookOAuth2Adapter
+# from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from rest_auth.registration.views import SocialLoginView
 
-class FacebookLogin(SocialLoginView):
-    adapter_class = FacebookOAuth2Adapter
+
+
+def all1(request):
+    return render(request, "./index.html")
+
+
+# class GoogleLogin(SocialLoginView):
+#     adapter_class = GoogleOAuth2Adapter
+
+# def post(self, request, *args, **kwargs):
+#     response = super(GoogleLogin, self).post(request, *args, **kwargs)
+#     token = Token.objects.get(key=response.data['key'])
+#     return Response({'token': token.key, 'id': token.user_id})
 
 class SearchRequestListAPIView(ListAPIView):
     queryset = SearchRequest.objects.all()
