@@ -15,14 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
 from django.contrib.auth.views import LogoutView
+from django.shortcuts import render
+
+def main_page(request):
+    return render(request, "./index.html")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('rest_api.urls')),
     path('accounts/', include('allauth.urls')),
-    # path('index/', TemplateView.as_view(template_name="index.html")),
     path('logout', LogoutView.as_view()),
+    path('', main_page, name="main_page"),
 ]
 
