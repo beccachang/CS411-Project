@@ -5,8 +5,16 @@ import './index.css';
 import './App.css';
 import SearchFormPage from './SearchFormPage';
 import LoginPage from './LoginPage';
+import LastSearchResultPage from './LastSearchResultPage';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      shownPage: 1,
+      history: null,
+    };
+  }
   
   render() {
     const { Header, Footer, Content } = Layout;
@@ -15,18 +23,16 @@ class App extends React.Component {
       <Layout className="layout">
         <Header>
           <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            {new Array(3).fill(null).map((_, index) => {
-              const key = index + 1;
-              return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
-            })}
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['0']}>
+          <Menu.Item key={0} onClick={() => this.setState({shownPage: 1})}>{'Home'}</Menu.Item>
+          <Menu.Item key={1} onClick={ () => this.setState({shownPage: 2})}>{'History'}</Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
-          {/* <LoginPage/> */}
-          <SearchFormPage/>
+          {this.state.shownPage === 0 ? <LoginPage/> : null}
+          {this.state.shownPage === 1 ? <SearchFormPage/> : null}
+          {this.state.shownPage === 2 ? <LastSearchResultPage results={this.state.history}/> : null}
         </Content>
-        <Footer style={{ textAlign: 'center' }}>©2021 Created by Some Tired Kids</Footer>
       </Layout>
     </div>
     );
