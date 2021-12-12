@@ -36,13 +36,13 @@ class App extends React.Component {
     fetch('http://127.0.0.1:8000/api/create/', requestOptions).then(response => response.json())
     .then(body => {
       const wikipedia_results = JSON.parse(body.wikipedia_results)
-      console.log(Object.values(JSON.parse(body.wikipedia_results)));
+      console.log(wikipedia_results);
       this.setState({
         wikiLinks: Object.values(wikipedia_results), 
         wikiHeaders: Object.keys(wikipedia_results), 
         showResultsDiv: true});
     })
-    .catch(error => {console.log(error, error); this.setState({response: error})});;
+    .catch(error => {this.setState({response: error})});;
   };
 
   onFormChange = (e) => {
@@ -97,26 +97,10 @@ class App extends React.Component {
               >
                   Next
               </Button>
-              <Button 
-                type="link"
-                disabled={wikipediaIndex==1}
-                onClick={e => this.setState({wikipediaIndex: wikipediaIndex-1})}
-                style={{marginLeft:'400px'}}
-              >
-                Prev
-              </Button>
-              <Button 
-                type="link" 
-                disabled={wikiLinks ? wikipediaIndex==wikiLinks.length-1 : true} 
-                onClick={e => this.setState({wikipediaIndex: wikipediaIndex+1})}
-                style={{marginLeft:'90px'}}
-              >
-                Next
-              </Button>
             </div>
             {/* <p>{JSON.stringify(this.state.wikiLinks)}</p> */}
             <div>
-              <iframe src={this.state.youtubeLink}
+              <iframe src={wikiLinks ? wikiLinks[wikipediaIndex][1] : ""}
                 frameBorder='0'
                 allow='autoplay; encrypted-media'
                 // allowfullscreen
@@ -127,7 +111,7 @@ class App extends React.Component {
             </div>
             <div>
               <iframe 
-                src={wikiLinks ? wikiLinks[wikipediaIndex] : ""} 
+                src={wikiLinks ? wikiLinks[wikipediaIndex][0] : ""} 
                 frameBorder="0" 
                 scrolling="yes" 
                 width="45%" 
