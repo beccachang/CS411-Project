@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { GoogleLogin } from 'react-google-login';
 import 'antd/dist/antd.css';
 import './index.css';
 import './App.css';
@@ -15,9 +16,16 @@ class App extends React.Component {
   onSubmit = () => {
   };
 
+  responseGoogle = (response) => {
+    console.log(response.error);
+    if(response.error === 'popup_closed_by_user') {
+      this.props.login()
+    }
+  }
+
 
   render() {
-
+    // console.log(this.props)
     return (
       <div style={{ margin: '20px',}}>
         <Form
@@ -28,9 +36,16 @@ class App extends React.Component {
           }}
         >
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
+            {/* <Button type="primary" htmlType="submit" className="login-form-button">
               Login with OAuth
-            </Button>
+            </Button> */}
+            <GoogleLogin
+              clientId="240201461912-mlqnal4or2o7tfountgqvkq9rul97km2.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={resp => {this.responseGoogle(resp); this.props.login();}}
+              onFailure={resp => {this.responseGoogle(resp);}}
+              cookiePolicy={'single_host_origin'}
+            />
             <p style={{marginTop: '20px'}}>or</p>
           </Form.Item>
           <Form.Item

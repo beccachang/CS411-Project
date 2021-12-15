@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import './index.css';
 import './App.css';
 import moment from 'moment';
+import { GoogleLogout } from 'react-google-login';
 
 class App extends React.Component {
   constructor(props) {
@@ -72,6 +73,12 @@ class App extends React.Component {
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
+        {/* <GoogleLogout
+          clientId="240201461912-mlqnal4or2o7tfountgqvkq9rul97km2.apps.googleusercontent.com"
+          buttonText="Logout"
+          onLogoutSuccess={this.logout}
+        > */}
+        {/* </GoogleLogout> */}
         <Form style={{ display: 'inline-block', position: 'absolute', left: '20px'}}>
           <Form.Item label="Date" name="Date">
             <DatePicker picker="month" disabledDate={this.disabledDate} onChange={ e => this.onFormChange(e)}/>
