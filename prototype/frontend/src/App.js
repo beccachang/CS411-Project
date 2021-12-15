@@ -7,15 +7,23 @@ import SearchFormPage from './SearchFormPage';
 import LoginPage from './LoginPage';
 import LastSearchResultPage from './LastSearchResultPage';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      shownPage: 1,
+      shownPage: 0,
       history: null,
     };
   }
-  
+
+  login = () => {
+    this.setState({shownPage: 1});
+  }
+  logout = () => {
+    this.setState({shownPage: 0});
+  }
+
   render() {
     const { Header, Footer, Content } = Layout;
     return (
@@ -29,9 +37,9 @@ class App extends React.Component {
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
-          {this.state.shownPage === 0 ? <LoginPage/> : null}
-          {this.state.shownPage === 1 ? <SearchFormPage/> : null}
-          {this.state.shownPage === 2 ? <LastSearchResultPage results={this.state.history}/> : null}
+          {this.state.shownPage === 0 ? <LoginPage login={this.login}/> : null}
+          {this.state.shownPage === 1 ? <SearchFormPage logout={this.logout}/> : null}
+          {this.state.shownPage === 2 ? <LastSearchResultPage logout={this.logout} results={this.state.history}/> : null}
         </Content>
       </Layout>
     </div>
