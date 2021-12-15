@@ -1,13 +1,13 @@
 import requests
 import json
 from pyyoutube import Api
-from rest_api.api_key import API_KEY
+# from rest_api.api_key import API_KEY
 
 
 
 
 def get_youtube_urls(titles):
-    api = Api(api_key=API_KEY)
+    api = Api(api_key='AIzaSyAPFRn3ybssI99NcmTX9zk9tf7P7VbC_aI')
     urls = []
     for val in titles:
         r = api.search_by_keywords(q=val, search_type=["video"], count=1, limit=1, order='relevance')
